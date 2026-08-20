@@ -268,3 +268,101 @@ int main() {
         }
     }
 }
+
+
+//find the missing number in the array of numbers from 1 to n.
+#include <iostream>
+using namespace std;
+int main(){
+    int arr[8]={1,5,2,4,7,8,6};
+    int n=8;
+    int sum = (n*(n+1))/2;
+    for(int i=0;i<n;i++){
+        sum -= arr[i];
+    }
+    cout<<"missing number = "<<sum;
+}
+
+//find the missing number in the array of numbers from 1 to n(2nd approach).
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[9] = {1, 2, 4, 5, 6, 7, 8, 9, 10};
+    int n = 10;
+    int miss = 0;
+    for (int i = 1; i <= n; i++) {
+        int flag = 0;
+        for (int j = 0; j < n - 1; j++) {
+            if (arr[j] == i) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) {
+            miss = i;
+            break;
+        }
+    }
+    cout << "Missing number: " << miss;
+    return 0;
+}
+
+
+//find the missing number in the array of numbers from 1 to n(3rd approach).
+#include <iostream>
+using namespace std;
+int missingNumberXOR(int arr[],int size){
+    int x1=0;
+    int x2=0;
+    int n = size +1;
+    for(int i=0;i<=n;i++){
+        x1=x1^i;
+    }
+    for(int i=0;i<size;i++){
+        x2=x2^arr[i];
+    }
+    return (x1^x2);
+}
+int main() {
+    int arr[9] = {1, 2, 4, 5, 6, 7, 8, 9, 10};
+    int n = 9;
+    cout << "Missing number: " << missingNumberXOR(arr,n);
+    return 0;
+}
+
+
+//find the square root of a number if it is not a perfect quare find its ceil value.
+#include <iostream>
+using namespace std;
+int main() {
+    int n = 9;
+    for(int i=0;i<n;i++){
+        if(i*i<n)
+        continue;
+        else if(i*i==n)
+            cout<<i;
+        else if(i*i>n)
+        cout<<i-1;
+        break;
+    }
+}
+
+//write a program to take input and display values in 3x3 array.
+#include <iostream>
+using namespace std;
+int main() {
+    int n = 3;
+    int arr[3][3];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cin>>arr[i][j];
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cout<<arr[i][j];
+        }
+        cout<<endl;
+    }
+}
